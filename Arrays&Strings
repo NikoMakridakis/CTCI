@@ -4,6 +4,7 @@ Chapter 1 - Arrays & Strings
 PROBLEMS
 ===========================================================================================================
 
+
 1.1 - Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you
   cannot use additional data structures?
 
@@ -50,10 +51,46 @@ PROBLEMS
   of another. Given two strings, 51 and 52, write code to check if 52 is a rotation of 51 using only one
   call to isSubstring (e.g., Uwaterbottleuis a rotation ofuerbottlewatU).
 
+
 ===========================================================================================================
 SOLUTIONS
 ===========================================================================================================
 
+
+===========================================================================================================
+1.1     
+
+
+===========================================================================================================
+1.2
+
+  bool CheckPermutation(string str1, string str2)
+        {
+            //The function converts the string to lower case and sorts the characters
+            str1 = sortLowercaseString(str1);
+            str2 = sortLowercaseString(str2);
+            
+            if (str1 == str2)
+            {
+                return true;
+            }
+            return false;
+        }
+        
+        string sortLowercaseString(string str)
+        {
+            str = str.ToLower();
+            char[] charArray = str.ToArray();
+            Array.Sort(charArray);
+            string result = new string(charArray);
+            return result;
+        }
+        
+        // Console.WriteLine(sortLowercaseString("CbA")); //returns: "abc"
+
+        Console.WriteLine(CheckPermutation("abc","bCA")); //returns: true
+
+===========================================================================================================
 1.3
 
    string convertString(string inputString)
@@ -80,6 +117,25 @@ SOLUTIONS
               return result;
           }
 
-          Console.WriteLine(convertString("   t  e  s  t   ")); //output: "t%20e%20s%20t"
+          Console.WriteLine(convertString("   t  e  s  t   ")); //returns: "t%20e%20s%20t"
+          
+===========================================================================================================
+1.4
+
+===========================================================================================================
+1.5
+
+===========================================================================================================
+1.6
+
+===========================================================================================================
+1.7
+
+===========================================================================================================
+1.8
+
+===========================================================================================================
+1.9
+
 
 
