@@ -84,7 +84,7 @@ SOLUTIONS
       return true;
   }
 
-  Console.WriteLine(uniqueString("abca")); //returns: false
+  Console.WriteLine(uniqueString("abca")); //This returns false
   
 ===========================================================================================================
 1.2
@@ -111,9 +111,9 @@ SOLUTIONS
       return result;
   }
 
-  // Console.WriteLine(sortLowercaseString("CbA")); //returns: "abc"
+  // Console.WriteLine(sortLowercaseString("CbA")); //This returns "abc"
 
-  Console.WriteLine(CheckPermutation("abc","bCA")); //returns: true
+  Console.WriteLine(CheckPermutation("abc","bCA")); //This returns true
   
 ===========================================================================================================
 1.3
@@ -142,7 +142,7 @@ SOLUTIONS
       return result;
   }
 
-  Console.WriteLine(convertString("   t  e  s  t   ")); //returns: "t%20e%20s%20t"
+  Console.WriteLine(convertString("   t  e  s  t   ")); //This returns "t%20e%20s%20t"
   
 ===========================================================================================================
 1.4
@@ -178,7 +178,7 @@ SOLUTIONS
       return false;
   }
 
-  bool output = checkPalindrome("abbac"); //returns: true, palindrome is "abcba"
+  bool output = checkPalindrome("abbac"); //This returns true, and the palindrome is "abcba"
   Console.WriteLine(output);
 
 ===========================================================================================================
