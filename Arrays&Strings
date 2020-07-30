@@ -184,67 +184,69 @@ SOLUTIONS
 ===========================================================================================================
 1.5
 
-  bool oneAway(string str1, string str2)
+  bool oneAway(string first, string second)
   {
-      string strLong = "";
-      string strShort= "";
-
-      //strLong will equal the longer string of the two
-      //strShort will equal the smaller string of the two
-      if (str1.Length > str2.Length)
+      if (first.Length == second.Length)
       {
-          strLong = str1;
-          strShort = str2;
+          return oneReplace(first, second);
       }
-      else
+      else if (first.Length + 1 == second.Length)
       {
-          strLong = str2;
-          strShort = str1;
+          //the parameter "first" will be the shorter string, and the parameter "second" will be the longer string.
+          return oneAddition(first, second);
       }
-
-      //If the two strings have a character difference of more than 1,
-      //Then at least two changes would need to be made to make both strings equal.
-      //Thus, this returns false.
-      if (strLong.Length - strShort.Length <= 1)
+      else if (first.Length - 1 == second.Length)
       {
-          int countChange = 0;
-          int j = 0;
-
-          for (int i = 0; i < strShort.Length; i++)
-          {
-
-              if (strShort[i] != strLong[j])
-              {
-                  //If the characters from strShort and strLong do not match,
-                  //Then countChange is increased by 1 to keep track of the number of characters needed to be changed.
-                  countChange++;
-                  if(countChange > 1)
-                  {
-                      return false;
-                  }
-
-                  //If the next index position of strLong equals the current index position of strShort,
-                  //Then the index position of strLong is increased to simulate that the character was added.
-                  if (strShort[i] == strLong[j + 1])
-                  {
-                      j++;
-                  }
-              }
-
-              //The index position of strLong is increased by 1 to match the
-              //index position of strShort
-              j++;
-
-          }
-          
-          return true;
+          //the parameter "second" will be the shorter string, and the parameter "first" will be the longer string.
+          return oneAddition(second, first);
       }
-
       else
       {
           return false;
       }
   }
+
+  bool oneReplace(string str1, string str2)
+  {
+      bool changeMade = false;
+      for (int i = 0; i < str1.Length; i++)
+      {
+          //if the strings have different characters at the same index,
+          //then the character will need to be changed to make the strings equal.
+          if (str1[i] != str2[i])
+          {
+              //if changeMade is true, then one character already needed to be changed which will return false.
+              if (changeMade)
+              {
+                  return false;
+              }
+              changeMade = true;
+          }
+      }
+      return true;
+  }
+
+  bool oneAddition(string str1, string str2)
+  {
+      int j = 0;
+      for (int i = 0; i < str1.Length; i++)
+      {
+          //if the strings have different characters at the same index, then a character would have to be added to make the strings equal.
+          if (str1[i] != str2[j])
+          {
+              //if the current index of the shorter string does not equal the next index of the longer string,
+              //then the strings would still be different after adding a character to the shorter string.
+              if (str1[i] != str2[j + 1])
+              {
+                  return false;
+              }
+              j++;
+          }
+          j++;
+      }
+      return true;
+  }
+
 
   Console.WriteLine(oneAway("ple", "pale")); //This returns true
   Console.WriteLine(oneAway("pales", "pale")); //This returns true
