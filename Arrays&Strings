@@ -254,6 +254,54 @@ SOLUTIONS
 ===========================================================================================================
 1.6
 
+  string CompressString(string str)
+  {
+      StringBuilder sb = new StringBuilder();
+      sb.Append(str[0]);
+      int count = 1;
+      int lastIndex = str.Length - 1;
+
+      for (int i = 1; i < str.Length; i++)
+      {
+          //if the current index character matches the previous index character,
+          //then it is a duplicated character, and the count will be incremented by 1.
+          if (str[i] == str[i - 1])
+          {
+              count++;
+              //if the current index character is the last index of the string,
+              //then the character count will be added to the StringBuilder.
+              if (i == (lastIndex))
+              {
+                  sb.Append(count);
+              }
+          }
+
+          //if the current index character does not match the previous index character,
+          //then the character count of the previous index character will be added and the character count will be reset to 1.
+          //Also the current index character will be added to the StringBuilder.
+          else if (str[i] != str[i - 1])
+          {
+              sb.Append(count);
+              count = 1;
+              sb.Append(str[i]);
+          }
+      }
+
+      string compressed = sb.ToString();
+
+      //the shorter length string will be returned
+      if (compressed.Length < str.Length)
+      {
+          return compressed;
+      }
+
+      return str;
+  }
+
+
+  Console.WriteLine(CompressString("aabbbcddd")); //This returns a2b3c1d3
+  Console.WriteLine(CompressString("abc")); //This returns abc
+
 ===========================================================================================================
 1.7
 
