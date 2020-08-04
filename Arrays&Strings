@@ -83,6 +83,8 @@ SOLUTIONS
       }
       return true;
   }
+  
+  
 
   Console.WriteLine(UniqueString("abca")); //This returns false
   
@@ -110,6 +112,8 @@ SOLUTIONS
       string result = new string(charArray);
       return result;
   }
+
+
 
   Console.WriteLine(sortLowercaseString("CbA")); //This returns "abc"
   Console.WriteLine(CheckPermutation("abc","bCA")); //This returns true
@@ -140,6 +144,8 @@ SOLUTIONS
 
       return result;
   }
+  
+  
 
   Console.WriteLine(ConvertString("   t  e  s  t   ")); //This returns "t%20e%20s%20t"
   
@@ -176,6 +182,8 @@ SOLUTIONS
 
       return false;
   }
+  
+  
   
   Console.WriteLine(CheckPalindrome("abbac")); //This returns true, and the palindrome is "abcba"
 
@@ -246,6 +254,7 @@ SOLUTIONS
   }
 
 
+
   Console.WriteLine(OneAway("ple", "pale")); //This returns true
   Console.WriteLine(OneAway("pales", "pale")); //This returns true
   Console.WriteLine(OneAway("pale", "bale")); //This returns true
@@ -299,11 +308,73 @@ SOLUTIONS
   }
 
 
+
   Console.WriteLine(CompressString("aabbbcddd")); //This returns a2b3c1d3
   Console.WriteLine(CompressString("abc")); //This returns abc
 
 ===========================================================================================================
 1.7
+
+int [][] rotateClockWise(int[][] matrix)
+{
+    /*
+    reversing the array does the following:
+    1 2 3       7 8 9       
+    4 5 6   ->  4 5 6
+    7 8 9       1 2 3
+    */
+    Array.Reverse(matrix);
+
+    /*
+                7 4 1    
+    final goal: 8 5 2
+                9 6 3
+    the elements across the diagonal (7, 5, and 3) are already in the correct position.
+    the elements below the diagonal (8, 9, and 6) need to be swapped with their mirrored element from above the diagonal (4, 1, and 2).
+    */
+
+    for (int i = 0; i < matrix.Length; i++)
+    {
+        //the elements below the diagonal are where j < i.
+        //for example, the element 6 is in position (i, j) = (2, 1)
+        for (int j = 0; j < i; j++)
+        {
+            //the elements below the diagonal are swapped with the elements above the diagonal.
+            int temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
+        }
+    }
+
+    return matrix;
+}
+    
+        
+        
+int[][] testMatrix =
+{
+    new int[] { 1, 2, 3 },
+    new int[] { 4, 5, 6 },
+    new int[] { 7, 8, 9 }
+};
+
+rotateClockWise(testMatrix);
+
+for (int i = 0; i < testMatrix.Length; i++)
+{
+    for (int j = 0; j < testMatrix[i].Length; j++)
+    {
+        Console.Write(testMatrix[i][j] + " ");
+    }
+    Console.WriteLine("");
+}
+        
+/*
+This returns the rotated matrix
+1 2 3       7 4 1       
+4 5 6   ->  8 5 2
+7 8 9       9 6 3
+*/
 
 ===========================================================================================================
 1.8
