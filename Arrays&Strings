@@ -315,7 +315,7 @@ SOLUTIONS
 ===========================================================================================================
 1.7
 
-int [][] rotateClockWise(int[][] matrix)
+int [][] RotateClockWise(int[][] matrix)
 {
     /*
     reversing the array does the following:
