@@ -473,5 +473,26 @@ This returns the zero matrix
 ===========================================================================================================
 1.9
 
+bool IsSubstring(string s1, string s2)
+{
+    if (s1.Length == s2.Length && s2.Length > 0)
+    {
+        //s1 = "waterbottle"
+        //s2 = "erbottlewat"
+        //s1s1 = "waterbottlewaterbottle"
+        //duplicating s1 will allow us to check if s2 is a substring
+        string s1s1 = s1 + s1;
+        if (s1s1.Contains(s2))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+
+Console.WriteLine(IsSubstring("waterbottle","erbottlewat")); //This returns true
 
 
