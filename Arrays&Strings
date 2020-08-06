@@ -358,6 +358,7 @@ int[][] testMatrix =
     new int[] { 7, 8, 9 }
 };
 
+Console.WriteLine();
 rotateClockWise(testMatrix);
 
 for (int i = 0; i < testMatrix.Length; i++)
@@ -378,6 +379,96 @@ This returns the rotated matrix
 
 ===========================================================================================================
 1.8
+
+int[][] ZeroMatrix(int[][] matrix)
+{
+    //two bool arrays for the rows and columns are used to track if a zero exists in the matrix.
+    //if a zero exists in the matrix, the entire row and column will be zero, so the exact location of the zero is not needed.
+    bool[] rowZero = new bool[matrix.Length];
+    bool[] columnZero = new bool[matrix[0].Length];
+    for (int i = 0; i < matrix.Length; i++)
+    {
+        for (int j = 0; j < matrix[0].Length; j++)
+        {
+            if (matrix[i][j] == 0)
+            {
+                rowZero[i] = true;
+                columnZero[j] = true;
+            }
+        }
+    }
+
+    for (int i = 0; i < rowZero.Length; i++)
+    {
+        if (rowZero[i])
+        {
+            SetRowsToZero(matrix, i);
+        }
+    }
+
+    for (int i = 0; i < columnZero.Length; i++)
+    {
+        if (columnZero[i])
+        {
+            SetColumnsToZero(matrix, i);
+        }
+    }
+
+    return matrix;
+}
+
+void SetRowsToZero(int[][] matrix, int row)
+{
+    for (int i = 0; i < matrix[0].Length; i++)
+    {
+        matrix[row][i] = 0;
+    }
+}
+
+void SetColumnsToZero(int[][] matrix, int column)
+{
+    for (int i = 0; i < matrix.Length; i++)
+    {
+        matrix[i][column] = 0;
+    }
+}
+
+
+
+int[][] testMatrix =
+{
+    new int[] { 1, 1, 0, 1 },
+    new int[] { 1, 1, 1, 1 },
+    new int[] { 1, 0, 1, 1 }
+};
+
+for (int i = 0; i < testMatrix.Length; i++)
+{
+    for (int j = 0; j < testMatrix[0].Length; j++)
+    {
+        Console.Write(testMatrix[i][j] + " ");
+    }
+    Console.WriteLine("");
+}
+
+Console.WriteLine();
+ZeroMatrix(testMatrix);
+
+for (int i = 0; i < testMatrix.Length; i++)
+{
+    for (int j = 0; j < testMatrix[i].Length; j++)
+    {
+        Console.Write(testMatrix[i][j] + " ");
+    }
+    Console.WriteLine("");
+}
+        
+/*
+This returns the zero matrix
+1 1 0 1     0 0 0 0      
+1 1 1 1 ->  1 0 0 1
+1 0 1 1     0 0 0 0
+*/
 
 ===========================================================================================================
 1.9
