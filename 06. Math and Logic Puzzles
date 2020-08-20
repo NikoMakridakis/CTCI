@@ -57,14 +57,14 @@ PROBLEMS
     as you'd like (as long as the results are negative). However, you can only run tests once per day and
     it takes seven days to return a result. How would you figure out the poisoned bottle in as few days
     as possible?
-    Follow up: Write code to simulate your approach. 
- 
+    Follow up: Write code to simulate your approach.
+    
+===========================================================================================================
+USEFUL SNIPPETS
+===========================================================================================================
 
 ===========================================================================================================
 SOLUTIONS
-===========================================================================================================
-
-
 ===========================================================================================================
 6.1
 
