@@ -4,7 +4,33 @@ Chapter 1 - Arrays & Strings
 IMPORTANT CONCEPTS
 ===========================================================================================================
 
-
+  str = str.ToLower(); //converts a string to all lower case letters
+  str = str.ToUpper(); //converts a string to all upper case letters
+  str = str.Trim(); //removes the white space from before and after the string
+  str[0]; //the character of the string at index 0. ex) str = "abc", str[0] = "a"
+  
+  StringBuilder sb = new StringBuilder(); //creates an empty StringBuilder
+  sb.Append(str); //concatenates the string to the StringBuilder
+  sb.Replace(oldString, newString); //replaces all old strings with new strings
+  string result = sb.ToString(); //converts StringBuilder to string
+  
+  List<char> list = new List<char>(); //creates an empty list
+  list.Contains(str[0]) //checks if list contains a value
+  list.Remove(str[0]); //removes first value from the list
+  list.Add(str[0]); //adds a value to the end of the list
+  list.Count; //gives the number of values in the list
+  
+  bool[] boolArray = new bool[128]; //creates a new array of type bool with 128 default 'false' values
+  char[] arr = str.ToArray(); //converts a string to an array of characters
+  Array.Sort(arr); //sorts an array
+  string result = new string(arr); //converts an array of characters to a new string
+  
+  int[][] testMatrix =
+  {
+    new int[] { 1, 2, 3 },
+    new int[] { 4, 5, 6 },
+    new int[] { 7, 8, 9 }
+  }; //creates 2 x 2 array
 
 ===========================================================================================================
 PROBLEMS
