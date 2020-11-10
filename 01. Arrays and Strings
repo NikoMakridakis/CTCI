@@ -172,8 +172,8 @@ SOLUTIONS
       str = str.ToLower();
       char[] charArray = str.ToArray();
       Array.Sort(charArray);
-      string result = new string(charArray);
-      return result;
+      str = new string(charArray);
+      return str;
   }
 
 
